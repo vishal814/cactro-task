@@ -1,7 +1,11 @@
 // using native fetch
 
 async function test() {
-  const baseUrl = 'http://localhost:3000/api';
+  // Change this to your live Render URL to test the deployed version
+  // For example: const baseUrl = 'https://event-booking-api-xxxx.onrender.com/api';
+  const baseUrl = process.argv[2] || 'http://localhost:3000/api';
+  
+  console.log(`Testing API at: ${baseUrl}`);
   
   console.log('Registering Organizer...');
   const orgRes = await fetch(`${baseUrl}/auth/register`, {
